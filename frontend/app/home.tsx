@@ -1,13 +1,11 @@
 // svgs
-import HatersSection from '@/assets/images/HatersSection.svg';
 import LeaderboardSection from '@/assets/images/LeaderboardSection.svg';
 import NewStraysSection from '@/assets/images/NewStraysSection.svg';
-import SendButton from '@/assets/images/sendButton.svg';
 import StraysSection from '@/assets/images/StraysSection.svg';
 import TopBar from '@/assets/images/topBar.svg';
 
 // other imports
-import { getNewFeed, Message, getProfile, Profile } from '@/api/requests';
+import { getNewFeed, getProfile, Message, Profile } from '@/api/requests';
 import { TextBoxContainer } from '@/components/text-box-container';
 import { router } from 'expo-router';
 import * as React from 'react';
@@ -20,27 +18,24 @@ function navigateTo(path: string, event?: any) {
 
 export default function HomeScreen() {
 
-  const [feed, setNewFeed] = React.useState<Message[] | null>(null);
-  const [profile, setProfile] = React.useState<null | Profile>(null);
+  let [feed, setFeed] = React.useState<Message[] | null>(null);
+  // const [profile, setProfile] = React.useState<null | Profile>(null);
 
   React.useEffect(() => {
     getNewFeed(1)
-      .then(setNewFeed)
+      .then(setFeed)
       .catch(console.error);
-    getProfile(1)
-      .then(setProfile)
-      .catch(console.error);
+    feed = feed ? feed.slice(0, 3) : null; // only show top 3 messages
+    // getProfile(1)
+    //   .then(setProfile)
+    //   .catch(console.error);
   }, []);
 
   console.log("Feed:", feed);
-  console.log("Profile:", profile);
+  // console.log("Profile:", profile);
 
   return (
     <View style={{ flex: 1, justifyContent: 'center' }}>
-      
-      {/* <Pressable onPress={(event) => navigateTo('/haters', event)}>
-        <HatersSection width="100%" style={{ position: 'absolute', top: -250, right: 0 }} />
-      </Pressable> */}
     
       <Pressable onPress={(event) => navigateTo('/leaderboard', event)}>
         <LeaderboardSection width="100%" style={{ position: 'absolute', top: -140, right: 0 }} />
@@ -49,12 +44,19 @@ export default function HomeScreen() {
       <Pressable onPress={(event) => navigateTo('/strays', event)}>
         <StraysSection width="100%" style={{ position: 'absolute', top: -270, right: 0 }} />
       </Pressable>
+
       <NewStraysSection width="100%" style={{ position: 'absolute', top: -30 }}/> 
+
       <TopBar width="100%" style={{ position: 'absolute', top: 25, left: -8}} /> 
-       {/* <Pressable onPress={(event) => navigateTo('/send-stray', event)}>
-        <SendButton style={{ alignSelf: 'center', position: 'absolute', top: -20 }} />
-      </Pressable> */}
-      <View style={{position: 'absolute', top: 200, right: 30}}>
+
+      {feed &&
+        feed.map((item, index) => (
+          <View key={item.id} style={{position: 'absolute', top: 200 + (index * 120), right: 30}}>
+            <TextBoxContainer sender={item.sender_username} message={item.content} width={350} />
+          </View>
+        ))
+      }
+      {/* <View style={{position: 'absolute', top: 200, right: 30}}>
         <TextBoxContainer sender="user" message="Hello, world!" width={350} />
       </View>
       <View style={{position: 'absolute', top: 320, right: 30}}>
@@ -62,7 +64,7 @@ export default function HomeScreen() {
       </View>
       <View style={{position: 'absolute', top: 440, right: 30}}>
         <TextBoxContainer sender="user" message="Hello, world!" width={350} />
-      </View>
+      </View> */}
     </View>
   );
 }
