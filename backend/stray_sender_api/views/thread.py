@@ -29,3 +29,23 @@ class ThreadComeback(APIView):
         serializer = serializers.ThreadSerializer(thread)
         return Response(serializer.data)
 
+class ThreadNew(APIView):
+    """
+    Start a new thread by posting a stray.
+    """
+    def post(self, request, format=None):
+        thread = models.Thread(
+                initiator_id=request.data['sender'],
+                target_id=request.data['target'],
+                )
+        thread.save()
+        message = models.Message(
+                thread=thread,
+                sender_id=request.data['sender'],
+                target_id=request.data['target'],
+                content=request.data['content'],
+                )
+        message.save()
+        serializer = serializers.ThreadSerializer(thread)
+        return Response(serializer.data)
+
