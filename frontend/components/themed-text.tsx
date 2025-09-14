@@ -35,24 +35,29 @@ export function ThemedText({
 
 const styles = StyleSheet.create({
   default: {
-    fontSize: 16,
+    fontFamily: 'p5hatty',
+    fontSize: 18,
     lineHeight: 24,
   },
   defaultSemiBold: {
-    fontSize: 16,
+    fontFamily: 'p5hatty',
+    fontSize: 18,
     lineHeight: 24,
     fontWeight: '600',
   },
   title: {
+    fontFamily: 'p5hatty',
     fontSize: 32,
     fontWeight: 'bold',
     lineHeight: 32,
   },
   subtitle: {
+    fontFamily: 'p5hatty',
     fontSize: 20,
     fontWeight: 'bold',
   },
   link: {
+    fontFamily: 'p5hatty',
     lineHeight: 30,
     fontSize: 16,
     color: '#0a7ea4',

@@ -2,7 +2,7 @@ import { createThread } from '@/api/requests';
 import { USER_ID } from '@/context/AppContext';
 import { router } from 'expo-router';
 import React, { useState } from 'react';
-import { Button, StyleSheet, TextInput, View } from 'react-native';
+import { Button, StyleSheet, TextInput } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 async function postStray(recipientId: number, content: string) {
@@ -34,15 +34,6 @@ export default function StrayInput() {
 
     <SafeAreaProvider>
       <SafeAreaView>
-{/* 
-      <View style = {{position: 'absolute', top: 620}} >
-    <Button
-        onPress={void(0)}
-        title="Send"
-        color="#e1d520ff"
-   
-      />
-      </View> */}
       <TextInput
           style={styles.input}
           onChangeText={onChangeNumber}
@@ -60,7 +51,7 @@ export default function StrayInput() {
         <Button
           onPress={postStray.bind(null, parseInt(number), text)}
           title="Send"
-          color="#e1d520ff"
+          color="white"
         />
       </SafeAreaView>
     </SafeAreaProvider>
@@ -70,10 +61,12 @@ export default function StrayInput() {
 const styles = StyleSheet.create({
   input: {
     height: 40,
+    width: 300,
     margin: 12,
     borderWidth: 1,
     padding: 10,
-    backgroundColor: "black"
+    backgroundColor: "black",
+    color: "white"
   },
 });
 

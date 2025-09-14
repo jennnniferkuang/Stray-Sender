@@ -5,12 +5,12 @@ import StraysSection from '@/assets/images/StraysSection.svg';
 import TopBar from '@/assets/images/topBar.svg';
 
 // other imports
-import { getNewFeed, getProfile, Message, Profile } from '@/api/requests';
+import { getNewFeed, Message } from '@/api/requests';
 import { TextBoxContainer } from '@/components/text-box-container';
+import { USER_ID } from '@/context/AppContext';
 import { router } from 'expo-router';
 import * as React from 'react';
 import { Pressable, View } from 'react-native';
-import { USER_ID } from '@/context/AppContext';
 
 function navigateTo(path: string, event?: any) {
   if (event) event.stopPropagation();
@@ -20,7 +20,6 @@ function navigateTo(path: string, event?: any) {
 export default function HomeScreen() {
 
   let [feed, setFeed] = React.useState<Message[] | null>(null);
-  // const [profile, setProfile] = React.useState<null | Profile>(null);
 
   React.useEffect(() => {
     getNewFeed(USER_ID)
@@ -28,9 +27,6 @@ export default function HomeScreen() {
       .catch(console.error);
     feed = feed ? feed.slice(0, 3) : null; // only show top 3 messages
   }, []);
-
-  console.log("Feed:", feed);
-  // console.log("Profile:", profile);
 
   return (
     <View style={{ flex: 1, justifyContent: 'center' }}>

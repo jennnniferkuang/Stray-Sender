@@ -18,11 +18,11 @@ export function TextBoxContainer({
   return (
 
   
-     <View>
+    <View>
       <TextBox width={width} />
       <Fire width = "15%" style={{position: 'absolute', top: 90, right: 150, zIndex: 1}}/>
       <Tomato width ="15%" style={{position: 'absolute', top: 90, right: 90, zIndex: 1}}/>
-      <ThemedText style={{ color: 'black', position: 'absolute', top: 120, left: 5, fontSize: 15, fontWeight: 'bold' }}>
+      <ThemedText style={{ color: 'black', position: 'absolute', top: 120, left: 5, fontSize: 18, fontWeight: 'bold' }}>
         {sender}
       </ThemedText>
       <ThemedText style={{
@@ -30,12 +30,12 @@ export function TextBoxContainer({
         position: 'absolute',
         top: 40,
         left: 150,
-        fontSize: 16,
+        fontSize: 18,
         flexWrap: 'wrap',
         width: '50%'
       }}>
         {message.length > 50 ? `${message.substring(0, 50)}...` : message}
       </ThemedText>
-      </View>
+    </View>
   );
 }
