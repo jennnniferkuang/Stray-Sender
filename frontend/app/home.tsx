@@ -1,17 +1,17 @@
 // svgs
-import NewStraysSection from '@/assets/images/NewStraysSection.svg';
-import TopBar from '@/assets/images/topBar.svg';
-import SendButton from '@/assets/images/sendButton.svg';
-import LeaderboardSection from '@/assets/images/LeaderboardSection.svg';
 import HatersSection from '@/assets/images/HatersSection.svg';
+import LeaderboardSection from '@/assets/images/LeaderboardSection.svg';
+import NewStraysSection from '@/assets/images/NewStraysSection.svg';
+import SendButton from '@/assets/images/sendButton.svg';
 import StraysSection from '@/assets/images/StraysSection.svg';
+import TopBar from '@/assets/images/topBar.svg';
 
 // other imports
+import { getNewFeed, Message, getProfile, Profile } from '@/api/requests';
+import { TextBoxContainer } from '@/components/text-box-container';
 import { router } from 'expo-router';
 import * as React from 'react';
-import { View } from 'react-native';
-import { Pressable } from 'react-native';
-import { TextBoxContainer } from '@/components/text-box-container';
+import { Pressable, View } from 'react-native';
 
 function navigateTo(path: string, event?: any) {
   if (event) event.stopPropagation();
@@ -19,6 +19,21 @@ function navigateTo(path: string, event?: any) {
 }
 
 export default function HomeScreen() {
+
+  const [feed, setNewFeed] = React.useState<Message[] | null>(null);
+  const [profile, setProfile] = React.useState<null | Profile>(null);
+
+  React.useEffect(() => {
+    getNewFeed(1)
+      .then(setNewFeed)
+      .catch(console.error);
+    getProfile(1)
+      .then(setProfile)
+      .catch(console.error);
+  }, []);
+
+  console.log("Feed:", feed);
+  console.log("Profile:", profile);
 
   return (
     <View style={{ flex: 1, justifyContent: 'center' }}>
