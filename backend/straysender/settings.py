@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-^*=l0_f+q!t%lil0eyc2y@bb-_6utw7ntu)3%!oed4ul1mp)4%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['straysapi.marbal.ca']
+ALLOWED_HOSTS = ['straysapi.marbal.ca', '127.0.0.1', 'localhost']
 
 # Application definition
 
