@@ -16,6 +16,8 @@ export function TextBoxContainer({
   width: NumberProp | undefined
 }) {
   return (
+
+  
      <View>
       <TextBox width={width} />
       <Fire width = "15%" style={{position: 'absolute', top: 90, right: 150, zIndex: 1}}/>
