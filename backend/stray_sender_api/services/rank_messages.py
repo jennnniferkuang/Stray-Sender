@@ -72,7 +72,6 @@ class RankMessages:
         content = chat_result.message.content
         assert content is not None
         rank_query = content[0].text if content[0].text else FALLBACK_QUERY
-        breakpoint()
         prompt_results = cls.co.rerank(
          model="rerank-v3.5",
          query=rank_query,
