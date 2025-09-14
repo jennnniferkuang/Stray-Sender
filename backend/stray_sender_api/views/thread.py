@@ -13,3 +13,19 @@ class Thread(APIView):
        serializer = serializers.ThreadSerializer(thread)
        return Response(serializer.data)
 
+class ThreadComeback(APIView):
+    """
+    Post a comeback to a thread by ID.
+    """
+    def post(self, request, id, format=None):
+        message = models.Message(
+                thread_id=id,
+                sender_id=request.data['sender'],
+                target_id=request.data['target'],
+                content=request.data['content'],
+                )
+        message.save()
+        thread = models.Thread.objects.get(id=id)
+        serializer = serializers.ThreadSerializer(thread)
+        return Response(serializer.data)
+
