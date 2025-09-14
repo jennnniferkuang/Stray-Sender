@@ -1,9 +1,9 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from . import views
+from stray_sender_api.views.thread import Thread
 
 
 urlpatterns = [
-    path('threads/', views.threads),
+    path('thread/<int:id>', Thread.as_view()),
 ]
 
