@@ -6,7 +6,24 @@ from typing import TypedDict
 
 from stray_sender_api import models
 
-PROMPT = """You are evaluating a short, standalone insult. Score it between 0 (very poor) and 1 (excellent) based on its overall quality. Consider the following aspects:
+SYSTEM_PROMPT = """Output the exact desired string, without formating and without anything more or less that what is asked. Keep prompts concise."""
+
+PROMPT = """You are using a reranking model to evaluate a series of short, standalone insult. 
+
+Consider the following criteria:
+
+Creativity – originality and inventiveness.
+
+Shock Factor – surprising impact
+
+Wittiness – cleverness or humor in phrasing.
+
+Example Input: "you look like you could finish a meal plan entirely by yourself"
+
+Your job is to generate a query for the reranking model such that the best insults surface to the top and are the most relevant.
+"""
+
+FALLBACK_QUERY="""You are evaluating a short, standalone insult. Score it between 0 (very poor) and 1 (excellent) based on its overall quality. Consider the following aspects:
 
 Creativity – originality and inventiveness.
 
@@ -15,17 +32,13 @@ Shock Factor – surprising impact
 Wittiness – cleverness or humor in phrasing.
 
 Output only a single number between 0 and 1 representing the overall quality of the insult. Higher numbers indicate a more creative, witty, and impactful insult.
-
-Example:
-Input: "you look like you could finish a meal plan entirely by yourself"
-Output: 0.87
 """
 
 COHERE_API_KEY = os.getenv("COHERE_API_KEY", None)
 
 
 class RankMessages:
-    co: cohere.Client = cohere.Client(COHERE_API_KEY) 
+    co: cohere.ClientV2 = cohere.ClientV2(COHERE_API_KEY) 
 
     @classmethod
     def call(cls, input_msgs: list[models.Message] | None = None) -> None:
@@ -51,9 +64,18 @@ class RankMessages:
 
     @classmethod
     def _cohere_prompt_relevance(cls, messages: list[str]) -> dict[int, float]:
+        chat_result = cls.co.chat(
+                model='command-a-03-2025',
+                messages=[cohere.SystemChatMessageV2(content=SYSTEM_PROMPT),
+                          cohere.UserChatMessageV2(content=PROMPT)],
+        )
+        content = chat_result.message.content
+        assert content is not None
+        rank_query = content[0].text if content[0].text else FALLBACK_QUERY
+        breakpoint()
         prompt_results = cls.co.rerank(
-         model="rerank-english-v3.0",
-         query=f"Prompt: {PROMPT}",
+         model="rerank-v3.5",
+         query=rank_query,
          documents=messages,
          top_n=len(messages),
         )
@@ -69,8 +91,8 @@ class RankMessages:
             thread = threads.get(tid)
             messages_in_thread: list[str] = [msg.content for msg in thread.messages.all()]
             results = cls.co.rerank(
-            model="rerank-english-v3.0",
-                query=f"Thread so far: {messages_in_thread}",
+                model="rerank-v3.5",
+                query=f"Most fitting in thread so far: {messages_in_thread}",
                 documents=[msg.content],
                 top_n=1,
             )
