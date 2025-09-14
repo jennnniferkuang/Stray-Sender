@@ -19,14 +19,14 @@ export default function Strays() {
 <View style = {{position: 'absolute', top: 400}} >
 <StrayInput  width="200%" height="100%" ></StrayInput>
 </View>
-<View style = {{position: 'absolute', top: 620}} >
+{/* <View style = {{position: 'absolute', top: 620}} >
     <Button
         onPress={void(0)}
         title="Send"
         color="#e1d520ff"
    
       />
-      </View>
+      </View> */}
 <View style = {{position: 'absolute', top: 820}} >
       <Button
           onPress={backToHome}

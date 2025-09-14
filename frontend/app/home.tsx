@@ -10,6 +10,7 @@ import { TextBoxContainer } from '@/components/text-box-container';
 import { router } from 'expo-router';
 import * as React from 'react';
 import { Pressable, View } from 'react-native';
+import { USER_ID } from '@/context/AppContext';
 
 function navigateTo(path: string, event?: any) {
   if (event) event.stopPropagation();
@@ -22,13 +23,10 @@ export default function HomeScreen() {
   // const [profile, setProfile] = React.useState<null | Profile>(null);
 
   React.useEffect(() => {
-    getNewFeed(1)
+    getNewFeed(USER_ID)
       .then(setFeed)
       .catch(console.error);
     feed = feed ? feed.slice(0, 3) : null; // only show top 3 messages
-    // getProfile(1)
-    //   .then(setProfile)
-    //   .catch(console.error);
   }, []);
 
   console.log("Feed:", feed);
