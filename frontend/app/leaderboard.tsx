@@ -32,21 +32,21 @@ export default function Leaderboard() {
       {leaderboard &&
         leaderboard.map((item, index) => (
           <View key={item.id} style={{position: 'absolute', top: 200 + (index * 175), right: 30}}>
-            <TextBoxContainer sender={item.sender_username} message={item.content} width={350} />
+            <TextBoxContainer message={item} />
             <ThemedText style={{ position: 'absolute', top: 25, left: 25, fontWeight: 'bold', color: 'black', fontSize: 25 }}>{index + 1}</ThemedText>
           </View>
         ))
       }
-     <View style = {{position: 'absolute', top: 750}} >
+     <View style = {{position: 'absolute', top: 775}} >
       <Button
           onPress={backToHome}
           title="Back to Home"
           color="white"
           accessibilityLabel="Go back to home screen"
         />
-        </View>
+      </View>
     </View>
-     
+      
 
 
 

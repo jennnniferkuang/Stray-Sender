@@ -20,7 +20,7 @@ export default function Strays() {
       <View style = {{position: 'absolute', top: 400}} >
         <StrayInput  width="200%" height="100%" ></StrayInput>
       </View>
-      <View style = {{position: 'absolute', top: 750}} >
+      <View style = {{position: 'absolute', top: 775}} >
       <Button
           onPress={backToHome}
           title="Back to Home"

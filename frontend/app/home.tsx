@@ -46,19 +46,10 @@ export default function HomeScreen() {
       {feed &&
         feed.map((item, index) => (
           <View key={item.id} style={{position: 'absolute', top: 200 + (index * 120), right: 30}}>
-            <TextBoxContainer sender={item.sender_username} message={item.content} width={350} />
+            <TextBoxContainer message={item} />
           </View>
         ))
       }
-      {/* <View style={{position: 'absolute', top: 200, right: 30}}>
-        <TextBoxContainer sender="user" message="Hello, world!" width={350} />
-      </View>
-      <View style={{position: 'absolute', top: 320, right: 30}}>
-        <TextBoxContainer sender="user" message="Hello, world!" width={350} />
-      </View>
-      <View style={{position: 'absolute', top: 440, right: 30}}>
-        <TextBoxContainer sender="user" message="Hello, world!" width={350} />
-      </View> */}
     </View>
   );
 }

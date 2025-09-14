@@ -26,10 +26,6 @@ export default function StrayInput() {
   const [text, onChangeText] = useState('');
   const [number, onChangeNumber] = useState('');
 
-  const backToHome = () => {
-    router.replace('/home');
-  }
-
   return (
 
     <SafeAreaProvider>

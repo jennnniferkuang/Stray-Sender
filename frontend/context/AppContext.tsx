@@ -2,7 +2,7 @@
 import React, { createContext, useContext, useState } from 'react';
 import { Profile, Message, Thread } from '@/api/requests';
 
-export const USER_ID = 2; // Hardcoded user ID for now
+export const USER_ID = 1; // Hardcoded user ID for now
 
 interface AppContextType {
   profile: Profile | null;
