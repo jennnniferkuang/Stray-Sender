@@ -36,20 +36,20 @@ export default function HomeScreen() {
   };
 
   return (
-    <View style={{ justifyContent: 'center' }}>
+    <View style={{ flex: 1, justifyContent: 'center' }}>
       <Pressable onPress={goToStrays}>
-        <StraysSection width="100%" style={{ position: 'absolute', top: 180, right: 0 }} />
+        <StraysSection width="100%" style={{ position: 'absolute', top: -160, right: 0 }} />
       </Pressable>
       <Pressable onPress={goToHaters}>
-        <HatersSection width="95%" style={{ position: 'absolute', top: 130, right: 0 }} />
+        <HatersSection width="100%" style={{ position: 'absolute', top: -250, right: 0 }} />
       </Pressable>
       <Pressable onPress={goToLeaderboard}>
-        <LeaderboardSection width="95%" style={{ position: 'absolute', top: -10, right: 0 }} />
+        <LeaderboardSection width="100%" style={{ position: 'absolute', top: -375, right: 0 }} />
       </Pressable>
       <NewStraysSection width="100%" style={{ position: 'absolute', top: -50 }}/>
       {/* <TopBar width="100%" style={{ position: 'absolute', top: -5 }} /> */}
       <Pressable onPress={sendStray}>
-        <SendButton style={{ alignSelf: 'center', position: 'absolute', top: 400 }} />
+        <SendButton style={{ alignSelf: 'center', position: 'absolute', top: -20 }} />
       </Pressable>
     </View>
   );
