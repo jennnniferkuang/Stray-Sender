@@ -6,6 +6,7 @@ from rest_framework.request import Request
 from django.db.models import Q
 
 from stray_sender_api import serializers, models
+from stray_sender_api.services.rank_messages import RankMessages
 
 class MessageUpvote(APIView):
     """
@@ -64,4 +65,12 @@ class MessageDownvote(APIView):
         message.save()
         seralizer = serializers.MessageSerializer(message)
         return Response(seralizer.data, status=status.HTTP_200_OK)
+
+class MessageRank(APIView):
+    """
+    Rank all messages
+    """
+    def get(self, request: Request):
+        RankMessages.call()
+        return Response({"status": "Ranking completed"}, status=status.HTTP_200_OK)
 

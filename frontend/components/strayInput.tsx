@@ -2,14 +2,14 @@ import { createThread } from '@/api/requests';
 import { USER_ID } from '@/context/AppContext';
 import { router } from 'expo-router';
 import React, { useState } from 'react';
-import { StyleSheet, TextInput } from 'react-native';
+import { Button, StyleSheet, TextInput, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 async function postStray(recipientId: number, content: string) {
   try {
     const payload = {
-      sender_id: USER_ID,
-      recipient_id: recipientId,
+      sender: USER_ID,
+      target: recipientId,
       content: content
     };
     
@@ -26,9 +26,23 @@ export default function StrayInput() {
   const [text, onChangeText] = useState('');
   const [number, onChangeNumber] = useState('');
 
+  const backToHome = () => {
+    router.replace('/home');
+  }
+
   return (
+
     <SafeAreaProvider>
       <SafeAreaView>
+{/* 
+      <View style = {{position: 'absolute', top: 620}} >
+    <Button
+        onPress={void(0)}
+        title="Send"
+        color="#e1d520ff"
+   
+      />
+      </View> */}
       <TextInput
           style={styles.input}
           onChangeText={onChangeNumber}
@@ -43,7 +57,11 @@ export default function StrayInput() {
           placeholder="Enter Stray:"
           value={text}
         />
-       
+        <Button
+          onPress={postStray.bind(null, parseInt(number), text)}
+          title="Send"
+          color="#e1d520ff"
+        />
       </SafeAreaView>
     </SafeAreaProvider>
   );
@@ -55,6 +73,7 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 10,
+    backgroundColor: "black"
   },
 });
 
