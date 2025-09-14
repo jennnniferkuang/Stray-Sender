@@ -4,7 +4,6 @@
     "slug": "battle-bars-frontend",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/Title.svg",
     "scheme": "battlebarsfrontend",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -19,8 +18,7 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "output": "static",
-      "favicon": "./assets/images/Title.svg"
+      "output": "static"
     },
     "plugins": [
       "expo-router",
