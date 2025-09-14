@@ -5,6 +5,7 @@ import SendButton from '@/assets/images/sendButton.svg';
 import LeaderboardSection from '@/assets/images/LeaderboardSection.svg';
 import HatersSection from '@/assets/images/HatersSection.svg';
 import StraysSection from '@/assets/images/StraysSection.svg';
+
 // other imports
 import { useRouter } from 'expo-router';
 import * as React from 'react';
@@ -46,11 +47,11 @@ export default function HomeScreen() {
       <Pressable onPress={goToLeaderboard}>
         <LeaderboardSection width="100%" style={{ position: 'absolute', top: -375, right: 0 }} />
       </Pressable>
-      <NewStraysSection width="100%" style={{ position: 'absolute', top: -50 }}/>
-      {/* <TopBar width="100%" style={{ position: 'absolute', top: -5 }} /> */}
-      <Pressable onPress={sendStray}>
+      <NewStraysSection width="100%" style={{ position: 'absolute', top: -30 }}/> 
+      <TopBar width="100%" style={{ position: 'absolute', top: 25, left: -8}} /> 
+       <Pressable onPress={sendStray}>
         <SendButton style={{ alignSelf: 'center', position: 'absolute', top: -20 }} />
-      </Pressable>
+      </Pressable> 
     </View>
   );
 }
