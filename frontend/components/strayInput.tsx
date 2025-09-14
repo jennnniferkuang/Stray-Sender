@@ -1,13 +1,30 @@
+import { createThread } from '@/api/requests';
+import { USER_ID } from '@/context/AppContext';
+import { router } from 'expo-router';
 import React, { useState } from 'react';
 import { StyleSheet, TextInput } from 'react-native';
-import { View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+
+async function postStray(recipientId: number, content: string) {
+  try {
+    const payload = {
+      sender_id: USER_ID,
+      recipient_id: recipientId,
+      content: content
+    };
+    
+    await createThread(payload);
+    // Navigate back to home after successful post
+    router.replace('/home');
+  } catch (error) {
+    console.error('Error posting stray:', error);
+    // You might want to show an error message to the user
+  }
+}
 
 export default function StrayInput() {
   const [text, onChangeText] = useState('');
   const [number, onChangeNumber] = useState('');
-
-  const [number2, onChangeNumberSend] = useState('');
 
   return (
     <SafeAreaProvider>
