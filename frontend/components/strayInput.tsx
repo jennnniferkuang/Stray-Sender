@@ -7,21 +7,26 @@ export default function StrayInput() {
   const [text, onChangeText] = useState('');
   const [number, onChangeNumber] = useState('');
 
+  const [number2, onChangeNumberSend] = useState('');
+
   return (
     <SafeAreaProvider>
       <SafeAreaView>
+      <TextInput
+          style={styles.input}
+          onChangeText={onChangeNumber}
+          onChangeNumberSend = {onChangeNumber}
+          value={number}
+          placeholder="Recipient ID:"
+          keyboardType="numeric"
+        />
         <TextInput
           style={styles.input}
           onChangeText={onChangeText}
+          placeholder="Enter Stray:"
           value={text}
         />
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeNumber}
-          value={number}
-          placeholder="Enter Stray:"
-          keyboardType="numeric"
-        />
+       
       </SafeAreaView>
     </SafeAreaProvider>
   );
