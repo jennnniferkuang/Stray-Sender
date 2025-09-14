@@ -19,5 +19,6 @@ urlpatterns = [
 
     path('message/<int:message_id>/upvote', MessageUpvote.as_view()),
     path('message/<int:message_id>/downvote', MessageDownvote.as_view()),
+    path('message/rank', MessageRank.as_view())
 ]
 
