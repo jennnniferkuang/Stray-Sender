@@ -1,8 +1,10 @@
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import * as React from 'react';
-import { Button } from 'react-native';
+import { Button, View } from 'react-native';
 import { useRouter } from 'expo-router';
+import Background1 from '@/assets/images/Background1.svg';
+import Title from '@/assets/images/Title.svg';
 
 export default function Leaderboard() {
 
@@ -13,14 +15,19 @@ export default function Leaderboard() {
     }
 
   return (
-    <ThemedView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <ThemedText style={{ fontSize: 24 }}>Leaderboard</ThemedText>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Background1 width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
+      <Title width="100%"/>
       <Button
-        onPress={backToHome}
-        title="Back to Home"
-        color="#e1d520ff"
-        accessibilityLabel="Go back to home screen"
-      />
-    </ThemedView>
+          onPress={backToHome}
+          title="Back to Home"
+          color="#e1d520ff"
+          accessibilityLabel="Go back to home screen"
+        />
+    </View>
+     
+
+
+
   );
 }

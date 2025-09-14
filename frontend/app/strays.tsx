@@ -3,7 +3,7 @@ import { ThemedView } from '@/components/themed-view';
 import * as React from 'react';
 import { Button } from 'react-native';
 import { useRouter } from 'expo-router';
-
+import StrayInput from '@/components/strayInput';
 export default function Strays() {
 
     const router = useRouter();
@@ -21,6 +21,7 @@ export default function Strays() {
         color="#e1d520ff"
         accessibilityLabel="Go back to home screen"
       />
+         <StrayInput></StrayInput>
     </ThemedView>
   );
 }
