@@ -12,6 +12,8 @@ export default function RootLayout() {
         <Stack.Screen name="home" options={{ headerShown: false }} />
         <Stack.Screen name="send-stray" options={{ headerShown: false }} />
         <Stack.Screen name="leaderboard" options={{ headerShown: false }} />
+        <Stack.Screen name="haters" options={{ headerShown: false }} />
+        <Stack.Screen name="strays" options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
   );
