@@ -7,5 +7,6 @@ urlpatterns = [
     path('thread/<int:id>', Thread.as_view()),
     path('thread/<int:id>/comeback', ThreadComeback.as_view()),
     path('post', ThreadNew.as_view()),
+    path('profile', ProfileDetail.as_view()),
 ]
 
