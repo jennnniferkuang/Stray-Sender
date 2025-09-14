@@ -4,7 +4,7 @@ import { NumberProp } from 'react-native-svg';
 export function TextBoxContainer({
   sender,
   message,
-  width = 350
+  width
 }: {
   sender: string;
   message: string;
