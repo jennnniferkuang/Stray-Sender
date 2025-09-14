@@ -1,0 +1,638 @@
+[
+  {
+    "model": "stray_sender_api.user",
+    "pk": 1,
+    "fields": {
+      "username": "alice_wonder",
+      "email": "alice@example.com",
+      "password": "pbkdf2_sha256$600000$xyz123$abc456def789",
+      "is_active": true,
+      "is_staff": false,
+      "date_joined": "2024-01-15T10:30:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.user",
+    "pk": 2,
+    "fields": {
+      "username": "bob_builder",
+      "email": "bob@example.com",
+      "password": "pbkdf2_sha256$600000$xyz123$abc456def789",
+      "is_active": true,
+      "is_staff": false,
+      "date_joined": "2024-01-16T14:20:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.user",
+    "pk": 3,
+    "fields": {
+      "username": "charlie_tech",
+      "email": "charlie@example.com",
+      "password": "pbkdf2_sha256$600000$xyz123$abc456def789",
+      "is_active": true,
+      "is_staff": false,
+      "date_joined": "2024-01-17T09:15:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.user",
+    "pk": 4,
+    "fields": {
+      "username": "diana_dev",
+      "email": "diana@example.com",
+      "password": "pbkdf2_sha256$600000$xyz123$abc456def789",
+      "is_active": true,
+      "is_staff": false,
+      "date_joined": "2024-01-18T16:45:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.user",
+    "pk": 5,
+    "fields": {
+      "username": "eve_explorer",
+      "email": "eve@example.com",
+      "password": "pbkdf2_sha256$600000$xyz123$abc456def789",
+      "is_active": true,
+      "is_staff": false,
+      "date_joined": "2024-01-19T11:00:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.user",
+    "pk": 6,
+    "fields": {
+      "username": "frank_photos",
+      "email": "frank@example.com",
+      "password": "pbkdf2_sha256$600000$xyz123$abc456def789",
+      "is_active": true,
+      "is_staff": false,
+      "date_joined": "2024-01-20T13:30:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.profile",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "name": "Alice Wonderland",
+      "desc": "Curious about everything! Love exploring new places and meeting interesting people.",
+      "emoji": "🌟",
+      "picture_url": "https://example.com/avatars/alice.jpg",
+      "created_at": "2024-01-15T10:35:00Z",
+      "updated_at": "2024-01-15T10:35:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.profile",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "name": "Bob the Builder",
+      "desc": "Can we fix it? Yes we can! Love building things and solving problems.",
+      "emoji": "🔨",
+      "picture_url": "https://example.com/avatars/bob.jpg",
+      "created_at": "2024-01-16T14:25:00Z",
+      "updated_at": "2024-01-16T14:25:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.profile",
+    "pk": 3,
+    "fields": {
+      "user": 3,
+      "name": "Charlie Chen",
+      "desc": "Tech enthusiast and coffee lover. Always learning something new!",
+      "emoji": "☕",
+      "picture_url": "https://example.com/avatars/charlie.jpg",
+      "created_at": "2024-01-17T09:20:00Z",
+      "updated_at": "2024-01-17T09:20:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.profile",
+    "pk": 4,
+    "fields": {
+      "user": 4,
+      "name": "Diana Rodriguez",
+      "desc": "Full-stack developer by day, gamer by night. Let's build something awesome!",
+      "emoji": "🎮",
+      "picture_url": "https://example.com/avatars/diana.jpg",
+      "created_at": "2024-01-18T16:50:00Z",
+      "updated_at": "2024-01-18T16:50:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.profile",
+    "pk": 5,
+    "fields": {
+      "user": 5,
+      "name": "Eve Thompson",
+      "desc": "Adventure seeker and nature photographer. Currently backpacking through Europe!",
+      "emoji": "📸",
+      "picture_url": "https://example.com/avatars/eve.jpg",
+      "created_at": "2024-01-19T11:05:00Z",
+      "updated_at": "2024-01-19T11:05:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.profile",
+    "pk": 6,
+    "fields": {
+      "user": 6,
+      "name": "Frank Miller",
+      "desc": "Street photographer capturing life's candid moments. Based in NYC.",
+      "emoji": "🏙️",
+      "picture_url": "https://example.com/avatars/frank.jpg",
+      "created_at": "2024-01-20T13:35:00Z",
+      "updated_at": "2024-01-20T13:35:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.friendship",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "friend": 2,
+      "created_at": "2024-01-17T12:00:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.friendship",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "friend": 1,
+      "created_at": "2024-01-17T12:00:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.friendship",
+    "pk": 3,
+    "fields": {
+      "user": 1,
+      "friend": 3,
+      "created_at": "2024-01-18T14:30:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.friendship",
+    "pk": 4,
+    "fields": {
+      "user": 3,
+      "friend": 1,
+      "created_at": "2024-01-18T14:30:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.friendship",
+    "pk": 5,
+    "fields": {
+      "user": 2,
+      "friend": 4,
+      "created_at": "2024-01-19T10:15:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.friendship",
+    "pk": 6,
+    "fields": {
+      "user": 4,
+      "friend": 2,
+      "created_at": "2024-01-19T10:15:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.friendship",
+    "pk": 7,
+    "fields": {
+      "user": 3,
+      "friend": 4,
+      "created_at": "2024-01-20T16:20:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.friendship",
+    "pk": 8,
+    "fields": {
+      "user": 4,
+      "friend": 3,
+      "created_at": "2024-01-20T16:20:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.friendship",
+    "pk": 9,
+    "fields": {
+      "user": 5,
+      "friend": 6,
+      "created_at": "2024-01-21T09:00:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.friendship",
+    "pk": 10,
+    "fields": {
+      "user": 6,
+      "friend": 5,
+      "created_at": "2024-01-21T09:00:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.thread",
+    "pk": 1,
+    "fields": {
+      "initiator": 1,
+      "target": 2,
+      "current_streak": 5,
+      "created_at": "2024-01-17T15:00:00Z",
+      "updated_at": "2024-01-22T10:30:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.thread",
+    "pk": 2,
+    "fields": {
+      "initiator": 3,
+      "target": 4,
+      "current_streak": 8,
+      "created_at": "2024-01-18T11:00:00Z",
+      "updated_at": "2024-01-22T14:15:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.thread",
+    "pk": 3,
+    "fields": {
+      "initiator": 1,
+      "target": 3,
+      "current_streak": 3,
+      "created_at": "2024-01-19T09:30:00Z",
+      "updated_at": "2024-01-21T16:45:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.thread",
+    "pk": 4,
+    "fields": {
+      "initiator": 5,
+      "target": 6,
+      "current_streak": 12,
+      "created_at": "2024-01-20T08:00:00Z",
+      "updated_at": "2024-01-22T18:20:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.message",
+    "pk": 1,
+    "fields": {
+      "thread": 1,
+      "sender": 1,
+      "target": 2,
+      "content": "Hey Bob! How's the building project going?",
+      "upvotes": 5,
+      "downvotes": 0,
+      "score": 5,
+      "created_at": "2024-01-17T15:05:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.message",
+    "pk": 2,
+    "fields": {
+      "thread": 1,
+      "sender": 2,
+      "target": 1,
+      "content": "Great! Just finished the foundation. The weather's been perfect for concrete work!",
+      "upvotes": 8,
+      "downvotes": 1,
+      "score": 7,
+      "created_at": "2024-01-18T09:15:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.message",
+    "pk": 3,
+    "fields": {
+      "thread": 1,
+      "sender": 1,
+      "target": 2,
+      "content": "That's awesome! I'd love to see some photos when you get a chance.",
+      "upvotes": 3,
+      "downvotes": 0,
+      "score": 3,
+      "created_at": "2024-01-19T12:30:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.message",
+    "pk": 4,
+    "fields": {
+      "thread": 1,
+      "sender": 2,
+      "target": 1,
+      "content": "Sure thing! I'll send some over tonight. The sunset lighting should be perfect.",
+      "upvotes": 6,
+      "downvotes": 0,
+      "score": 6,
+      "created_at": "2024-01-20T14:45:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.message",
+    "pk": 5,
+    "fields": {
+      "thread": 1,
+      "sender": 1,
+      "target": 2,
+      "content": "Can't wait! Your photography skills have really improved lately.",
+      "upvotes": 4,
+      "downvotes": 0,
+      "score": 4,
+      "created_at": "2024-01-22T10:30:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.message",
+    "pk": 6,
+    "fields": {
+      "thread": 2,
+      "sender": 3,
+      "target": 4,
+      "content": "Diana! Just discovered this amazing new JavaScript framework. You have to check it out!",
+      "upvotes": 12,
+      "downvotes": 2,
+      "score": 10,
+      "created_at": "2024-01-18T11:30:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.message",
+    "pk": 7,
+    "fields": {
+      "thread": 2,
+      "sender": 4,
+      "target": 3,
+      "content": "Oh no, not another JS framework! 😂 But seriously, what makes this one special?",
+      "upvotes": 15,
+      "downvotes": 1,
+      "score": 14,
+      "created_at": "2024-01-19T08:20:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.message",
+    "pk": 8,
+    "fields": {
+      "thread": 2,
+      "sender": 3,
+      "target": 4,
+      "content": "Haha fair point! But this one actually solves the state management problem elegantly. Want to pair program on it this weekend?",
+      "upvotes": 9,
+      "downvotes": 0,
+      "score": 9,
+      "created_at": "2024-01-20T16:10:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.message",
+    "pk": 9,
+    "fields": {
+      "thread": 2,
+      "sender": 4,
+      "target": 3,
+      "content": "Absolutely! I'm free Saturday afternoon. Let's build something cool!",
+      "upvotes": 7,
+      "downvotes": 0,
+      "score": 7,
+      "created_at": "2024-01-21T10:45:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.message",
+    "pk": 10,
+    "fields": {
+      "thread": 2,
+      "sender": 3,
+      "target": 4,
+      "content": "Perfect! I'll set up the repo and send you the link. This is going to be epic!",
+      "upvotes": 11,
+      "downvotes": 0,
+      "score": 11,
+      "created_at": "2024-01-22T14:15:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.message",
+    "pk": 11,
+    "fields": {
+      "thread": 3,
+      "sender": 1,
+      "target": 3,
+      "content": "Charlie! I heard you're the coffee expert around here. Any recommendations for a good morning brew?",
+      "upvotes": 6,
+      "downvotes": 0,
+      "score": 6,
+      "created_at": "2024-01-19T09:45:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.message",
+    "pk": 12,
+    "fields": {
+      "thread": 3,
+      "sender": 3,
+      "target": 1,
+      "content": "Alice! You've come to the right person! Have you tried single-origin Ethiopian beans? They have this amazing fruity note that's perfect for mornings.",
+      "upvotes": 8,
+      "downvotes": 0,
+      "score": 8,
+      "created_at": "2024-01-20T07:30:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.message",
+    "pk": 13,
+    "fields": {
+      "thread": 3,
+      "sender": 1,
+      "target": 3,
+      "content": "That sounds amazing! Where do you usually get your beans? I'm tired of the generic supermarket stuff.",
+      "upvotes": 4,
+      "downvotes": 0,
+      "score": 4,
+      "created_at": "2024-01-21T16:45:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.message",
+    "pk": 14,
+    "fields": {
+      "thread": 4,
+      "sender": 5,
+      "target": 6,
+      "content": "Frank! Just captured the most incredible sunrise over the Alps. The colors were absolutely magical!",
+      "upvotes": 18,
+      "downvotes": 0,
+      "score": 18,
+      "created_at": "2024-01-20T08:15:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.message",
+    "pk": 15,
+    "fields": {
+      "thread": 4,
+      "sender": 6,
+      "target": 5,
+      "content": "Eve! That sounds incredible! I'm so jealous of your European adventure. The light in the mountains must be amazing for photography.",
+      "upvotes": 14,
+      "downvotes": 0,
+      "score": 14,
+      "created_at": "2024-01-20T15:20:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.message",
+    "pk": 16,
+    "fields": {
+      "thread": 4,
+      "sender": 5,
+      "target": 6,
+      "content": "It really is! The way the light hits the snow-capped peaks is just breathtaking. I'll send you some shots when I get back to civilization with better wifi!",
+      "upvotes": 12,
+      "downvotes": 0,
+      "score": 12,
+      "created_at": "2024-01-21T06:30:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.message",
+    "pk": 17,
+    "fields": {
+      "thread": 4,
+      "sender": 6,
+      "target": 5,
+      "content": "Can't wait to see them! Your travel photography always inspires me to explore new angles in my street photography here in NYC.",
+      "upvotes": 16,
+      "downvotes": 1,
+      "score": 15,
+      "created_at": "2024-01-22T11:45:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.message",
+    "pk": 18,
+    "fields": {
+      "thread": 4,
+      "sender": 5,
+      "target": 6,
+      "content": "That means so much coming from you! Your urban compositions are incredible. When I get back, we should definitely plan a photo walk together!",
+      "upvotes": 13,
+      "downvotes": 0,
+      "score": 13,
+      "created_at": "2024-01-22T18:20:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.vote",
+    "pk": 1,
+    "fields": {
+      "user": 2,
+      "message": 1,
+      "vote_type": "up",
+      "created_at": "2024-01-17T15:10:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.vote",
+    "pk": 2,
+    "fields": {
+      "user": 3,
+      "message": 1,
+      "vote_type": "up",
+      "created_at": "2024-01-17T16:20:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.vote",
+    "pk": 3,
+    "fields": {
+      "user": 4,
+      "message": 1,
+      "vote_type": "up",
+      "created_at": "2024-01-17T18:45:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.vote",
+    "pk": 4,
+    "fields": {
+      "user": 1,
+      "message": 2,
+      "vote_type": "up",
+      "created_at": "2024-01-18T09:20:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.vote",
+    "pk": 5,
+    "fields": {
+      "user": 3,
+      "message": 2,
+      "vote_type": "up",
+      "created_at": "2024-01-18T12:30:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.vote",
+    "pk": 6,
+    "fields": {
+      "user": 4,
+      "message": 6,
+      "vote_type": "up",
+      "created_at": "2024-01-18T11:35:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.vote",
+    "pk": 7,
+    "fields": {
+      "user": 2,
+      "message": 7,
+      "vote_type": "up",
+      "created_at": "2024-01-19T08:25:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.vote",
+    "pk": 8,
+    "fields": {
+      "user": 1,
+      "message": 7,
+      "vote_type": "up",
+      "created_at": "2024-01-19T10:15:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.vote",
+    "pk": 9,
+    "fields": {
+      "user": 5,
+      "message": 14,
+      "vote_type": "up",
+      "created_at": "2024-01-20T08:20:00Z"
+    }
+  },
+  {
+    "model": "stray_sender_api.vote",
+    "pk": 10,
+    "fields": {
+      "user": 6,
+      "message": 14,
+      "vote_type": "up",
+      "created_at": "2024-01-20T09:30:00Z"
+    }
+  }
+]
