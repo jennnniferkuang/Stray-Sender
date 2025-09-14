@@ -10,6 +10,7 @@ import { useRouter } from 'expo-router';
 import * as React from 'react';
 import { View } from 'react-native';
 import { Pressable } from 'react-native';
+import { TextBoxContainer } from '@/components/text-box-container';
 
 export default function HomeScreen() {
 
@@ -51,6 +52,9 @@ export default function HomeScreen() {
       <Pressable onPress={sendStray}>
         <SendButton style={{ alignSelf: 'center', position: 'absolute', top: -20 }} />
       </Pressable>
+      <View style={{position: 'absolute', top: 100}}>
+        <TextBoxContainer sender="user" message="Hello, world!" />
+      </View>
     </View>
   );
 }
